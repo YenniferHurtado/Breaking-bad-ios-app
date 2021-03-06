@@ -56,15 +56,47 @@
 		A13B880325F3F02C005DE6BC /* MovieListApp */ = {
 			isa = PBXGroup;
 			children = (
+				A154E58E25F3F7F600868A87 /* Main */,
 				A13B880425F3F02C005DE6BC /* AppDelegate.swift */,
 				A13B880625F3F02C005DE6BC /* SceneDelegate.swift */,
-				A13B880825F3F02C005DE6BC /* ViewController.swift */,
 				A13B880A25F3F02C005DE6BC /* Main.storyboard */,
 				A13B880D25F3F030005DE6BC /* Assets.xcassets */,
 				A13B880F25F3F030005DE6BC /* LaunchScreen.storyboard */,
 				A13B881225F3F030005DE6BC /* Info.plist */,
 			);
 			path = MovieListApp;
+			sourceTree = "<group>";
+		};
+		A13B881825F3F611005DE6BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A13B881925F3F623005DE6BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A13B880825F3F02C005DE6BC /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A13B881A25F3F62B005DE6BC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A154E58E25F3F7F600868A87 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A13B881825F3F611005DE6BC /* Model */,
+				A13B881925F3F623005DE6BC /* View */,
+				A13B881A25F3F62B005DE6BC /* ViewModel */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
