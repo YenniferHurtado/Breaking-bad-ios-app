@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		A13B880525F3F02C005DE6BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B880425F3F02C005DE6BC /* AppDelegate.swift */; };
 		A13B880725F3F02C005DE6BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B880625F3F02C005DE6BC /* SceneDelegate.swift */; };
-		A13B880925F3F02C005DE6BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B880825F3F02C005DE6BC /* ViewController.swift */; };
+		A13B880925F3F02C005DE6BC /* ViewControllerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13B880825F3F02C005DE6BC /* ViewControllerCollectionView.swift */; };
 		A13B880C25F3F02C005DE6BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13B880A25F3F02C005DE6BC /* Main.storyboard */; };
 		A13B880E25F3F030005DE6BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13B880D25F3F030005DE6BC /* Assets.xcassets */; };
 		A13B881125F3F030005DE6BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13B880F25F3F030005DE6BC /* LaunchScreen.storyboard */; };
+		A154E59225F4190A00868A87 /* ViewControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154E59125F4190A00868A87 /* ViewControllerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A13B880125F3F02C005DE6BC /* MovieListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13B880425F3F02C005DE6BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A13B880625F3F02C005DE6BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A13B880825F3F02C005DE6BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A13B880825F3F02C005DE6BC /* ViewControllerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCollectionView.swift; sourceTree = "<group>"; };
 		A13B880B25F3F02C005DE6BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A13B880D25F3F030005DE6BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A13B881025F3F030005DE6BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A13B881225F3F030005DE6BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A154E59125F4190A00868A87 /* ViewControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,8 @@
 		A13B881925F3F623005DE6BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A13B880825F3F02C005DE6BC /* ViewController.swift */,
+				A13B880825F3F02C005DE6BC /* ViewControllerCollectionView.swift */,
+				A154E59125F4190A00868A87 /* ViewControllerCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,9 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13B880925F3F02C005DE6BC /* ViewController.swift in Sources */,
+				A13B880925F3F02C005DE6BC /* ViewControllerCollectionView.swift in Sources */,
 				A13B880525F3F02C005DE6BC /* AppDelegate.swift in Sources */,
 				A13B880725F3F02C005DE6BC /* SceneDelegate.swift in Sources */,
+				A154E59225F4190A00868A87 /* ViewControllerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
