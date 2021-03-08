@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieCharacterModel : Codable {
+struct CharacterModel : Codable {
 	let char_id : Int?
 	let name : String?
 	let birthday : String?
