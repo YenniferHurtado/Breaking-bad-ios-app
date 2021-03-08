@@ -19,7 +19,6 @@ struct MovieCharacterModel : Codable {
 	let appearance : [Int]?
 	let portrayed : String?
 	let category : String?
-	let better_call_saul_appearance : [String]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -33,7 +32,6 @@ struct MovieCharacterModel : Codable {
 		case appearance = "appearance"
 		case portrayed = "portrayed"
 		case category = "category"
-		case better_call_saul_appearance = "better_call_saul_appearance"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -48,7 +46,7 @@ struct MovieCharacterModel : Codable {
 		appearance = try values.decodeIfPresent([Int].self, forKey: .appearance)
 		portrayed = try values.decodeIfPresent(String.self, forKey: .portrayed)
 		category = try values.decodeIfPresent(String.self, forKey: .category)
-		better_call_saul_appearance = try values.decodeIfPresent([String].self, forKey: .better_call_saul_appearance)
-	}
+
+    }
 
 }

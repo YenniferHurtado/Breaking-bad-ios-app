@@ -8,5 +8,24 @@
 
 import Foundation
 
+class MovieCharacterCollectionViewModel {
+    
+    var restApi = RestApi()
+    var repository = MovieDataRepository()
 
-// https://breakingbadapi.com/api/characters
+    func getDataCharacter() {
+        repository.movieDataCharacteres()
+    }
+    
+    func getDataEpisodes() {
+        repository.movieDataEpisodes()
+    }
+    
+    func getDataQuotes() {
+        repository.movieDataQuotes()
+    }
+    
+    func getDataDeaths() {
+        repository.movieDataDeaths()
+    }
+}

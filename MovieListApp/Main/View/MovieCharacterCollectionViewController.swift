@@ -7,27 +7,29 @@
 //
 
 import UIKit
-import Alamofire
 
-class ViewControllerCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MovieCharacterCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     private var collectionView: UICollectionView?
-
+    var viewModel = MovieCharacterCollectionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViewDataCharacter()
+        
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
         guard let collectionView = collectionView else {
             return
         }
         
-        collectionView.register(ViewControllerCollectionViewCell.self, forCellWithReuseIdentifier: ViewControllerCollectionViewCell.identifier)
+        collectionView.register(MovieCharacterCollectionViewCell.self, forCellWithReuseIdentifier: MovieCharacterCollectionViewCell.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -35,7 +37,7 @@ class ViewControllerCollectionView: UIViewController, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewControllerCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCharacterCollectionViewCell.identifier, for: indexPath)
         
         return cell
     }
@@ -43,3 +45,9 @@ class ViewControllerCollectionView: UIViewController, UICollectionViewDataSource
 
 }
 
+extension MovieCharacterCollectionViewController {
+    
+    func configureViewDataCharacter() {
+        viewModel.getDataCharacter()
+    }
+}
