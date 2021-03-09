@@ -16,6 +16,7 @@ class CollectionViewController: UICollectionViewController {
     // MARK: - Properties
 
     let images: [UIImage] = [#imageLiteral(resourceName: "character"), #imageLiteral(resourceName: "quotes"), #imageLiteral(resourceName: "episodes"), #imageLiteral(resourceName: "deaths")]
+    let id: Int = [1,2,3,4,5]
     var modelCharacter = [EpisodeModel]()
     
     var viewModel = EpisodeViewModel()

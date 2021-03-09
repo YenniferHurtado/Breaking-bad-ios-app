@@ -21,18 +21,44 @@ class CellView: UICollectionViewCell {
         }
     }
     
-    let cellImageView: UIImageView = {
+    var idText: UITextView? {
+        didSet {
+            guard let idTxt = idText else { return }
+            idTextView.text = "\(idTxt)"
+        }
+    }
+    
+    var cellImageView: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "deaths")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        
         return iv
     }()
     
-    let descriptionTextView: UITextView = {
+    var cellImageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "deaths").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(handleImageCell), for: .touchUpInside)
+        return button
+    }()
+    
+    var episodeTittleTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Ahora puedes pagar \na otros bancos desde\n Tunki con Plin"
-        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        textView.text = "Titulo Ep"
+        textView.font = UIFont.boldSystemFont(ofSize: 25)
+        textView.textAlignment = .center
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        return textView
+    }()
+    
+    var idTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "\(1)"
+        textView.font = UIFont.boldSystemFont(ofSize: 25)
         textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
@@ -46,11 +72,19 @@ class CellView: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(container)
-        
-        container.insertSubview(cellImageView, at: 0)
-        container.insertSubview(descriptionTextView, at: 1)
+        container.insertSubview(cellImageButton, at: 0)
+        container.insertSubview(episodeTittleTextView, at: 1)
+        container.insertSubview(idTextView, at: 2)
 
+        setupLayaout()
+    }
+    
+    func setupLayaout() {
+        episodeTittleTextView.topAnchor.constraint(equalTo: container.topAnchor, constant: 75).isActive = true
+        episodeTittleTextView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 50).isActive = true
+        idTextView.topAnchor.constraint(equalTo: container.topAnchor, constant: 75).isActive = true
         cellImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
