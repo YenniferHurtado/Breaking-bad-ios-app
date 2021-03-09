@@ -25,8 +25,8 @@ class HeaderView: UICollectionReusableView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Breaking Bad Episodes"
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.text = "Breaking Bad \n "
+        label.font = UIFont.boldSystemFont(ofSize: 40)
         label.textColor = .white
         return label
     }()
@@ -59,7 +59,6 @@ class HeaderView: UICollectionReusableView {
         
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         nameLabel.anchor(top: profileImageView.bottomAnchor, paddingTop: 12)
-        
 
     }
     

@@ -11,13 +11,31 @@ import Alamofire
 import RxSwift
 
 protocol APIServiceProtocol {
-    func callResApiData(url: String) -> Observable<[EpisodeModel]>
+    func callRestApi(url: String)
+
 }
 
 public class RestApi: APIServiceProtocol {
     
     public static let sharedInstance = RestApi()
     var characterModel = [EpisodeModel]()
+    
+    func callRestApi(url: String) {
+        
+        AF.request(url).response { response in
+            if let data = response.data {
+                do {
+                    let response = try JSONDecoder().decode([EpisodeModel].self, from: data)
+                    self.characterModel.append(contentsOf: response)
+                    DispatchQueue.main.async {
+                        print(response)
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
     
     func callResApiData(url: String) -> Observable<[EpisodeModel]> {
         

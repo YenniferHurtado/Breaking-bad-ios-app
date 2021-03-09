@@ -71,7 +71,18 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CellView
-            cell.text = viewModel.modelCharacter[indexPath.row].title
+            let tittle = viewModel.modelCharacter[indexPath.row].title
+            let id = viewModel.modelCharacter[indexPath.row].episode_id
+            
+            let tiit = tittle?.replacingOccurrences(of: " ", with: "\n")
+            
+            if tittle!.count > 10 {
+                cell.text = "Episodio: \(id ?? 0)\n \(tiit ?? "")"
+
+            } else {
+                cell.text = "Episodio: \(id ?? 0)\n \(tittle ?? "")"
+            }
+            
             return cell
         }
         
