@@ -8,18 +8,18 @@
 
 import Foundation
 
-class RepositoryViewModel {
+class EpisodeViewModel {
     
-    var restApi = RestApi()
-    var repository = MovieDataRepository()
-
-
-    func getDataCharacter() {
-        repository.movieDataCharacteres()
-    }
+//    let apiService: APIServiceProtocol
+    
+    var repository = RepositoryViewModel()
     
     func getDataEpisodes() {
         repository.movieDataEpisodes()
+    }
+    
+    func getDataCharacter() {
+        repository.movieDataCharacteres()
     }
     
     func getDataQuotes() {

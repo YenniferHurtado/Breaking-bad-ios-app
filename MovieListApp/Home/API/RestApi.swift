@@ -9,7 +9,11 @@
 import Foundation
 import Alamofire
 
-public class RestApi {
+protocol APIServiceProtocol {
+    func callRestApi(url: String)
+}
+
+public class RestApi: APIServiceProtocol {
     
     public static let sharedInstance = RestApi()
     var characterModel = [EpisodeModel]()
@@ -30,4 +34,5 @@ public class RestApi {
             }
         }
     }
+    
 }

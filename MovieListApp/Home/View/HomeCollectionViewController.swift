@@ -9,7 +9,7 @@
 import UIKit
 
 private let cellIdentifier = "HomeCell"
-private let headerIdentifier = "HomeHeacer"
+private let headerIdentifier = "HomeHeader"
 
 class CollectionViewController: UICollectionViewController {
     
@@ -18,26 +18,22 @@ class CollectionViewController: UICollectionViewController {
     let images: [UIImage] = [#imageLiteral(resourceName: "character"), #imageLiteral(resourceName: "quotes"), #imageLiteral(resourceName: "episodes"), #imageLiteral(resourceName: "deaths")]
     var modelCharacter = [EpisodeModel]()
     
-    var viewModel = RepositoryViewModel()
+    var viewModel = EpisodeViewModel()
 
     // MARK: - Lifecycle
-    
-        override func viewWillAppear(_ animated: Bool) {
-            viewModel.getDataEpisodes()
-        }
         
         override func viewDidLoad() {
             super.viewDidLoad()
-                   
-            viewModel.getDataEpisodes()
 
             collectionView.backgroundColor = .black
+            viewModel.getDataEpisodes()
+
             
             // register header
-            collectionView!.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+            collectionView!.register(HomeCollectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
             
             // register cell
-            collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
+            collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
             
             collectionView.contentInsetAdjustmentBehavior = .never
             
@@ -54,16 +50,16 @@ class CollectionViewController: UICollectionViewController {
     extension CollectionViewController {
         
         override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! HomeCollectionHeader
             return header
         }
         
         override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return modelCharacter.count
+            return images.count
         }
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
             cell.image = images[indexPath.row]
             return cell
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MovieDataRepository {
+public class RepositoryViewModel {
     
     let restApi: RestApi = RestApi.sharedInstance
     

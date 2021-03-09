@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A12AAD4425F6A74500D27FBA /* HomeCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12AAD4325F6A74500D27FBA /* HomeCollectionHeader.swift */; };
 		A12AAD4825F6E12700D27FBA /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12AAD4725F6E12700D27FBA /* EpisodeModel.swift */; };
-		A12C94F425F435250004B762 /* ViewModelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C94F325F435250004B762 /* ViewModelCollectionView.swift */; };
+		A12C94F425F435250004B762 /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C94F325F435250004B762 /* EpisodeViewModel.swift */; };
 		A12C94F625F462BB0004B762 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C94F525F462BB0004B762 /* CharacterModel.swift */; };
 		A12C94FA25F46FCC0004B762 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C94F925F46FCC0004B762 /* Repository.swift */; };
 		A12C94FC25F46FD90004B762 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C94FB25F46FD90004B762 /* URLBuilder.swift */; };
@@ -30,7 +30,7 @@
 		714A9A09CB03597E06791A98 /* Pods-MovieListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieListApp.release.xcconfig"; path = "Target Support Files/Pods-MovieListApp/Pods-MovieListApp.release.xcconfig"; sourceTree = "<group>"; };
 		A12AAD4325F6A74500D27FBA /* HomeCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeader.swift; sourceTree = "<group>"; };
 		A12AAD4725F6E12700D27FBA /* EpisodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
-		A12C94F325F435250004B762 /* ViewModelCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCollectionView.swift; sourceTree = "<group>"; };
+		A12C94F325F435250004B762 /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
 		A12C94F525F462BB0004B762 /* CharacterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		A12C94F925F46FCC0004B762 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A12C94FB25F46FD90004B762 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
@@ -79,10 +79,17 @@
 			isa = PBXGroup;
 			children = (
 				A12C94F925F46FCC0004B762 /* Repository.swift */,
-				A12C94FB25F46FD90004B762 /* URLBuilder.swift */,
 				A12C94FD25F47C620004B762 /* RestApi.swift */,
+				A12C94FB25F46FD90004B762 /* URLBuilder.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A12AAD4925F7A33400D27FBA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A13B87F825F3F02C005DE6BC = {
@@ -139,7 +146,7 @@
 		A13B881A25F3F62B005DE6BC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A12C94F325F435250004B762 /* ViewModelCollectionView.swift */,
+				A12C94F325F435250004B762 /* EpisodeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -147,9 +154,10 @@
 		A154E58E25F3F7F600868A87 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A13B881A25F3F62B005DE6BC /* ViewModel */,
 				A13B881825F3F611005DE6BC /* Model */,
 				A13B881925F3F623005DE6BC /* View */,
-				A13B881A25F3F62B005DE6BC /* ViewModel */,
+				A12AAD4925F7A33400D27FBA /* Controller */,
 				A12AAD3F25F67C5D00D27FBA /* API */,
 			);
 			path = Home;
@@ -271,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A12C94FA25F46FCC0004B762 /* Repository.swift in Sources */,
-				A12C94F425F435250004B762 /* ViewModelCollectionView.swift in Sources */,
+				A12C94F425F435250004B762 /* EpisodeViewModel.swift in Sources */,
 				A13B880925F3F02C005DE6BC /* HomeCollectionViewController.swift in Sources */,
 				A13B880525F3F02C005DE6BC /* AppDelegate.swift in Sources */,
 				A13B880725F3F02C005DE6BC /* SceneDelegate.swift in Sources */,

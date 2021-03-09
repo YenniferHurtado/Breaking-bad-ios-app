@@ -8,9 +8,7 @@
 
 import UIKit
 
-import UIKit
-
-class ProfileCell: UICollectionViewCell {
+class HomeCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     

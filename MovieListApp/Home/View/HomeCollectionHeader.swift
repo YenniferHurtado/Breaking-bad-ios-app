@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileHeader: UICollectionReusableView {
+class HomeCollectionHeader: UICollectionReusableView {
     
     // MARK: - Properties
     

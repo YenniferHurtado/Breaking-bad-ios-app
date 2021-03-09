@@ -10,6 +10,10 @@ import Foundation
 
 // MARK: - EpisodeModel
 
+struct BreackinBadModel: Decodable {
+    let episodes: [EpisodeModel]
+}
+
 struct EpisodeModel : Decodable {
 	let episode_id : Int?
 	let title : String?
