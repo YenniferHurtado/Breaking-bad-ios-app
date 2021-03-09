@@ -8,10 +8,11 @@
 
 import Foundation
 
-class MovieCharacterCollectionViewModel {
+class RepositoryViewModel {
     
     var restApi = RestApi()
     var repository = MovieDataRepository()
+
 
     func getDataCharacter() {
         repository.movieDataCharacteres()

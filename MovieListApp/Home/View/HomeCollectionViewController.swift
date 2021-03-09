@@ -16,17 +16,21 @@ class CollectionViewController: UICollectionViewController {
     // MARK: - Properties
 
     let images: [UIImage] = [#imageLiteral(resourceName: "character"), #imageLiteral(resourceName: "quotes"), #imageLiteral(resourceName: "episodes"), #imageLiteral(resourceName: "deaths")]
-    var modelCharacter = [MovieCharacterModel]()
+    var modelCharacter = [EpisodeModel]()
     
-    var viewModel = MovieCharacterCollectionViewModel()
+    var viewModel = RepositoryViewModel()
 
     // MARK: - Lifecycle
+    
+        override func viewWillAppear(_ animated: Bool) {
+            viewModel.getDataEpisodes()
+        }
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
+                   
             viewModel.getDataEpisodes()
-            
+
             collectionView.backgroundColor = .black
             
             // register header
@@ -42,6 +46,7 @@ class CollectionViewController: UICollectionViewController {
         override var preferredStatusBarStyle: UIStatusBarStyle {
             return .lightContent
         }
+
     }
 
     // MARK: - UICollectionViewDelegate/DataSource

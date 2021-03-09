@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct CharacterModel : Codable {
+// MARK: - CharacterModel
+
+struct CharacterModel : Decodable {
 	let char_id : Int?
 	let name : String?
 	let birthday : String?

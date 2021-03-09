@@ -12,14 +12,14 @@ import Alamofire
 public class RestApi {
     
     public static let sharedInstance = RestApi()
-    var characterModel = [MovieCharacterModel]()
+    var characterModel = [EpisodeModel]()
     
     func callRestApi(url: String) {
         
         AF.request(url).response { response in
             if let data = response.data {
                 do {
-                    let response = try JSONDecoder().decode([MovieCharacterModel].self, from: data)
+                    let response = try JSONDecoder().decode([EpisodeModel].self, from: data)
                     self.characterModel.append(contentsOf: response)
                     DispatchQueue.main.async {
                         print(response)
