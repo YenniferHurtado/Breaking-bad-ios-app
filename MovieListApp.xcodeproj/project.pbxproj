@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A114271F25F81F5600DFBB46 /* ViewDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114271E25F81F5600DFBB46 /* ViewDescription.swift */; };
 		A12AAD4425F6A74500D27FBA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12AAD4325F6A74500D27FBA /* HeaderView.swift */; };
 		A12AAD4825F6E12700D27FBA /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12AAD4725F6E12700D27FBA /* EpisodeModel.swift */; };
 		A12C94F425F435250004B762 /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12C94F325F435250004B762 /* EpisodeViewModel.swift */; };
@@ -28,6 +29,7 @@
 		085920BEBD0CC9B8A5D73720 /* Pods-MovieListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieListApp.debug.xcconfig"; path = "Target Support Files/Pods-MovieListApp/Pods-MovieListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5DF0A146FB99376E69240A78 /* Pods_MovieListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		714A9A09CB03597E06791A98 /* Pods-MovieListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieListApp.release.xcconfig"; path = "Target Support Files/Pods-MovieListApp/Pods-MovieListApp.release.xcconfig"; sourceTree = "<group>"; };
+		A114271E25F81F5600DFBB46 /* ViewDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDescription.swift; sourceTree = "<group>"; };
 		A12AAD4325F6A74500D27FBA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A12AAD4725F6E12700D27FBA /* EpisodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		A12C94F325F435250004B762 /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
@@ -75,6 +77,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A114271A25F8113100DFBB46 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				A114271D25F8117E00DFBB46 /* View */,
+				A114271C25F8117800DFBB46 /* Model */,
+				A114271B25F8116C00DFBB46 /* ViewModel */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		A114271B25F8116C00DFBB46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A114271C25F8117800DFBB46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A12C94F525F462BB0004B762 /* CharacterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A114271D25F8117E00DFBB46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A114271E25F81F5600DFBB46 /* ViewDescription.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A12AAD3F25F67C5D00D27FBA /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +141,9 @@
 		A13B880325F3F02C005DE6BC /* MovieListApp */ = {
 			isa = PBXGroup;
 			children = (
+				A114271A25F8113100DFBB46 /* Character */,
 				A154E58E25F3F7F600868A87 /* Home */,
+				A12AAD3F25F67C5D00D27FBA /* API */,
 				A13B880425F3F02C005DE6BC /* AppDelegate.swift */,
 				A13B880625F3F02C005DE6BC /* SceneDelegate.swift */,
 				A13B880A25F3F02C005DE6BC /* Main.storyboard */,
@@ -120,7 +157,6 @@
 		A13B881825F3F611005DE6BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A12C94F525F462BB0004B762 /* CharacterModel.swift */,
 				A12AAD4725F6E12700D27FBA /* EpisodeModel.swift */,
 			);
 			path = Model;
@@ -150,7 +186,6 @@
 				A13B881A25F3F62B005DE6BC /* ViewModel */,
 				A13B881825F3F611005DE6BC /* Model */,
 				A13B881925F3F623005DE6BC /* View */,
-				A12AAD3F25F67C5D00D27FBA /* API */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -281,6 +316,7 @@
 				A154E59225F4190A00868A87 /* CellView.swift in Sources */,
 				A12C94F625F462BB0004B762 /* CharacterModel.swift in Sources */,
 				A12C94FE25F47C620004B762 /* RestApi.swift in Sources */,
+				A114271F25F81F5600DFBB46 /* ViewDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

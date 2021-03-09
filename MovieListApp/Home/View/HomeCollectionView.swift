@@ -92,8 +92,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         
     }
 
-    
-
     // MARK: - UICollectionViewDelegateFlowLayout
 
     extension CollectionViewController: UICollectionViewDelegateFlowLayout {

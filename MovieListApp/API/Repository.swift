@@ -13,14 +13,14 @@ public class RepositoryViewModel {
     
     let restApi: RestApi = RestApi.sharedInstance
     
-    public func movieDataCharacteres() -> Void {
+    func movieDataCharacteres() -> Observable<[CharacterModel]> {
         
         let url = URLBuilder()
             .urlBase()
             .domain(.CHARACTERS)
             .build()
         
-        return restApi.callRestApi(url: url)
+        return restApi.callResApiCharacter(url: url)
     }
     
     func movieDataEpisodes() -> Observable<[EpisodeModel]> {
@@ -30,28 +30,27 @@ public class RepositoryViewModel {
             .domain(.EPISODES)
             .build()
         
-        return restApi.callResApiData(url: url)
+        return restApi.callResApiEpisodes(url: url)
     }
     
-    public func movieDataQuotes() -> Void {
-        
-        let url = URLBuilder()
-            .urlBase()
-            .domain(.QUOTES)
-            .build()
-        
-        return restApi.callRestApi(url: url)
-    }
-    
-    public func movieDataDeaths() -> Void {
-        
-        let url = URLBuilder()
-            .urlBase()
-            .domain(.DEATHS)
-            .build()
-        
-        return restApi.callRestApi(url: url)
-
-    }
+//    public func movieDataQuotes() -> Void {
+//
+//        let url = URLBuilder()
+//            .urlBase()
+//            .domain(.QUOTES)
+//            .build()
+//
+//        return restApi.callRestApi(url: url)
+//    }
+//
+//    public func movieDataDeaths() -> Void {
+//
+//        let url = URLBuilder()
+//            .urlBase()
+//            .domain(.DEATHS)
+//            .build()
+//
+//        return restApi.callRestApi(url: url)
+//    }
     
 }

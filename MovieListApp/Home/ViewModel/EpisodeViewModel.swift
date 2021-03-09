@@ -14,7 +14,8 @@ public class EpisodeViewModel {
     
     var view: CollectionViewProtocol?
     let images: [UIImage] = [#imageLiteral(resourceName: "character"), #imageLiteral(resourceName: "quotes"), #imageLiteral(resourceName: "episodes"), #imageLiteral(resourceName: "deaths")]
-    var modelCharacter = [EpisodeModel]()
+    var episodeModel = [EpisodeModel]()
+    var characterModel = [CharacterModel]()
         
     var repository = RepositoryViewModel()
     
@@ -23,7 +24,7 @@ public class EpisodeViewModel {
         observable
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { ( list ) in
-                self.modelCharacter = list
+                self.episodeModel = list
                 self.view?.listEpisodes()
             }, onError: { ( error ) in
                 
@@ -36,13 +37,18 @@ public class EpisodeViewModel {
     
     func getDataCharacter() {
         repository.movieDataCharacteres()
+        let observable = repository.movieDataCharacteres()
+        observable
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { ( char ) in
+                self.characterModel = char
+            }, onError: { ( error ) in
+            
+            }, onCompleted: {
+                
+            }) {
+                
+        }
     }
     
-    func getDataQuotes() {
-        repository.movieDataQuotes()
-    }
-    
-    func getDataDeaths() {
-        repository.movieDataDeaths()
-    }
 }
