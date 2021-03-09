@@ -66,13 +66,13 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         }
         
         override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return viewModel.modelCharacter.count
+            return viewModel.episodeModel.count
         }
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CellView
-            let tittle = viewModel.modelCharacter[indexPath.row].title
-            let id = viewModel.modelCharacter[indexPath.row].episode_id
+            let tittle = viewModel.episodeModel[indexPath.row].title
+            let id = viewModel.episodeModel[indexPath.row].episode_id
             
             let tiit = tittle?.replacingOccurrences(of: " ", with: "\n")
             
@@ -87,7 +87,7 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         }
         
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
+            print("hola")
         }
         
     }
