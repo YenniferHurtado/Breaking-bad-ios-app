@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeCollectionHeader: UICollectionReusableView {
+class HeaderView: UICollectionReusableView {
     
     // MARK: - Properties
     
@@ -46,16 +46,6 @@ class HomeCollectionHeader: UICollectionReusableView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Selectors
-    
-    @objc func handleMessageUser() {
-        print("Message user here..")
-    }
-    
-    @objc func handleFollowUser() {
-        print("Follow user here..")
     }
     
     // MARK: - Constraint

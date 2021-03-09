@@ -30,10 +30,10 @@ class CollectionViewController: UICollectionViewController {
 
             
             // register header
-            collectionView!.register(HomeCollectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+            collectionView!.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
             
             // register cell
-            collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+            collectionView.register(CellView.self, forCellWithReuseIdentifier: cellIdentifier)
             
             collectionView.contentInsetAdjustmentBehavior = .never
             
@@ -50,7 +50,7 @@ class CollectionViewController: UICollectionViewController {
     extension CollectionViewController {
         
         override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! HomeCollectionHeader
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! HeaderView
             return header
         }
         
@@ -59,7 +59,7 @@ class CollectionViewController: UICollectionViewController {
         }
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CellView
             cell.image = images[indexPath.row]
             return cell
         }
