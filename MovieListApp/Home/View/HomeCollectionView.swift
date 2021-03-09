@@ -11,13 +11,16 @@ import UIKit
 private let cellIdentifier = "HomeCell"
 private let headerIdentifier = "HomeHeader"
 
-class CollectionViewController: UICollectionViewController {
+protocol CollectionViewProtocol {
+    
+    func listEpisodes()
+}
+
+
+class CollectionViewController: UICollectionViewController, CollectionViewProtocol {
+    
     
     // MARK: - Properties
-
-    let images: [UIImage] = [#imageLiteral(resourceName: "character"), #imageLiteral(resourceName: "quotes"), #imageLiteral(resourceName: "episodes"), #imageLiteral(resourceName: "deaths")]
-    let id: Int = [1,2,3,4,5]
-    var modelCharacter = [EpisodeModel]()
     
     var viewModel = EpisodeViewModel()
 
@@ -27,6 +30,7 @@ class CollectionViewController: UICollectionViewController {
             super.viewDidLoad()
 
             collectionView.backgroundColor = .black
+            viewModel.view = self
             viewModel.getDataEpisodes()
 
             
@@ -43,8 +47,14 @@ class CollectionViewController: UICollectionViewController {
         override var preferredStatusBarStyle: UIStatusBarStyle {
             return .lightContent
         }
+    
+        func listEpisodes() {
+            collectionView.reloadData()
+        }
 
     }
+
+
 
     // MARK: - UICollectionViewDelegate/DataSource
 
@@ -56,16 +66,22 @@ class CollectionViewController: UICollectionViewController {
         }
         
         override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return images.count
+            return viewModel.modelCharacter.count
         }
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CellView
-            cell.image = images[indexPath.row]
+            cell.text = viewModel.modelCharacter[indexPath.row].title
             return cell
         }
         
+        override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            print(viewModel.modelCharacter[indexPath.row].title)
+        }
+        
     }
+
+    
 
     // MARK: - UICollectionViewDelegateFlowLayout
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 public class RepositoryViewModel {
     
@@ -22,14 +23,14 @@ public class RepositoryViewModel {
         return restApi.callRestApi(url: url)
     }
     
-    public func movieDataEpisodes() -> Void {
+    func movieDataEpisodes() -> Observable<[EpisodeModel]> {
         
         let url = URLBuilder()
             .urlBase()
             .domain(.EPISODES)
             .build()
         
-        return restApi.callRestApi(url: url)
+        return restApi.callResApiData(url: url)
     }
     
     public func movieDataQuotes() -> Void {

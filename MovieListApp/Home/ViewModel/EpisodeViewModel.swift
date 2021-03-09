@@ -7,15 +7,31 @@
 //
 
 import Foundation
+import UIKit
+import RxSwift
 
-class EpisodeViewModel {
+public class EpisodeViewModel {
     
-//    let apiService: APIServiceProtocol
-    
+    var view: CollectionViewProtocol?
+    let images: [UIImage] = [#imageLiteral(resourceName: "character"), #imageLiteral(resourceName: "quotes"), #imageLiteral(resourceName: "episodes"), #imageLiteral(resourceName: "deaths")]
+    var modelCharacter = [EpisodeModel]()
+        
     var repository = RepositoryViewModel()
     
     func getDataEpisodes() {
-        repository.movieDataEpisodes()
+        let observable = repository.movieDataEpisodes()
+        observable
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { ( list ) in
+                self.modelCharacter = list
+                self.view?.listEpisodes()
+            }, onError: { ( error ) in
+                
+            }, onCompleted: {
+                
+            }) {
+                
+        }
     }
     
     func getDataCharacter() {

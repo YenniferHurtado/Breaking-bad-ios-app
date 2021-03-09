@@ -21,12 +21,19 @@ class CellView: UICollectionViewCell {
         }
     }
     
-    var idText: UITextView? {
+    var text: String? {
         didSet {
-            guard let idTxt = idText else { return }
-            idTextView.text = "\(idTxt)"
+            guard let texto = text else { return }
+            episodeTittleTextView.text = texto
         }
     }
+    
+//    var idText: UITextView? {
+//        didSet {
+//            guard let idTxt = idText else { return }
+//            idTextView.text = "\(idTxt)"
+//        }
+//    }
     
     var cellImageView: UIImageView = {
         let iv = UIImageView()
@@ -72,7 +79,7 @@ class CellView: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(container)
-        container.insertSubview(cellImageButton, at: 0)
+        container.insertSubview(cellImageView, at: 0)
         container.insertSubview(episodeTittleTextView, at: 1)
         container.insertSubview(idTextView, at: 2)
 
