@@ -85,13 +85,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		A12AAD4925F7A33400D27FBA /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		A13B87F825F3F02C005DE6BC = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +150,6 @@
 				A13B881A25F3F62B005DE6BC /* ViewModel */,
 				A13B881825F3F611005DE6BC /* Model */,
 				A13B881925F3F623005DE6BC /* View */,
-				A12AAD4925F7A33400D27FBA /* Controller */,
 				A12AAD3F25F67C5D00D27FBA /* API */,
 			);
 			path = Home;

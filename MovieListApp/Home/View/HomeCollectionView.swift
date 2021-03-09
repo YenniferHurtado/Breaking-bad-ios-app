@@ -87,7 +87,7 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         }
         
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            print(viewModel.modelCharacter[indexPath.row].title)
+            
         }
         
     }
