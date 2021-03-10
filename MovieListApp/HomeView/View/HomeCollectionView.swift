@@ -19,9 +19,6 @@ protocol CollectionViewProtocol {
 
 class CollectionViewController: UICollectionViewController, CollectionViewProtocol {
     
-    
-    // MARK: - Properties
-    
     var viewModel = CharacterViewModel()
 
     // MARK: - Lifecycle
@@ -42,10 +39,10 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             collectionView.contentInsetAdjustmentBehavior = .never
             
         }
-        
-        override var preferredStatusBarStyle: UIStatusBarStyle {
-            return .lightContent
-        }
+//
+//        override var preferredStatusBarStyle: UIStatusBarStyle {
+//            return .lightContent
+//        }
     
         func listCharacter() {
             collectionView.reloadData()
@@ -102,7 +99,8 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         
         func routeToDescriptionViewController() {
             let viewController = DescriptionViewController()
-            let navViewController = UINavigationController(rootViewController: viewController)
+            let navViewController =
+                UINavigationController(rootViewController: viewController)
             navViewController.modalPresentationStyle = .fullScreen
             present(navViewController, animated: true)
         }

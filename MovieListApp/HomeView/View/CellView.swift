@@ -28,10 +28,8 @@ class CellView: UICollectionViewCell {
         }
     }
     
-    
     var cellImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "deaths")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.layer.borderWidth = 6
@@ -43,7 +41,6 @@ class CellView: UICollectionViewCell {
     
     var nameTitleText: UITextView = {
         let textView = UITextView()
-        textView.text = "Titulo"
         textView.font = UIFont.boldSystemFont(ofSize: 20)
         textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
