@@ -70,8 +70,7 @@ class CellView: UICollectionViewCell {
     }
     
     func setupLayaout() {
-//        episodeTittleTextView.topAnchor.constraint(equalTo: container.topAnchor, constant: 75).isActive = true
-//        episodeTittleTextView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 10).isActive = true
+        
         episodeTittleTextView.anchor()
         cellImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
 
@@ -81,19 +80,13 @@ class CellView: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Selector
-    
-    @objc func handleImageCell() {
-        print("Message user here..")
-    }
-    
 }
 
 extension UIView {
+    
     func anchor(centerX: NSLayoutXAxisAnchor, centerY: NSLayoutYAxisAnchor) {
         
         translatesAutoresizingMaskIntoConstraints = false
-    
         centerXAnchor.constraint(equalTo: centerX).isActive = true
         centerYAnchor.constraint(equalTo: centerY).isActive = true
         
