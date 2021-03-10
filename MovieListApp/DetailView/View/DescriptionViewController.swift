@@ -10,16 +10,16 @@ import UIKit
 
 private let cellIdentifier = "HomeCell"
 
+
 class DescriptionViewController: UIViewController, CollectionViewProtocol, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
  
     var viewModel = CharacterViewModel()
     var name = ""
     var birthday = ""
     var nickname = ""
-    var imageCharacter = UIImage()
     
     let imageView: UIImageView = {
-        let view = UIImageView(image: #imageLiteral(resourceName: "character"))
+        let view = UIImageView(image: #imageLiteral(resourceName: "deaths"))
         view.contentMode = .scaleAspectFill
         return view
     }()
@@ -46,29 +46,48 @@ class DescriptionViewController: UIViewController, CollectionViewProtocol, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("hhhhhh\(imageCharacter)")
-                
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .purple
+                        
+        //AddSubView
+        view.addSubview(collectionView)
+        view.addSubview(imageView)
+        view.addSubview(descriptionTextView)
         view.backgroundColor = .white
-        descriptionTextView.text = "Name: \(name)\nNickname: \(nickname)\nBirthday:\(birthday)\n\n\n\nOcupación:"
-                
+        
+        //CollectionView Delegate-DataSource
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         viewModel.view = self
+        
+        // Data from VIewModel
         viewModel.getDataCharacter()
+        
+        //Dismiss
         routeToHome()
         
-        view.addSubview(collectionView)
-        view.addSubview(imageView)
-        view.addSubview(descriptionTextView)
+        // Data from HomeView
+        getTextViewData()
+
+        // Register Cell
+        registerViewCell()
         
+        // Contranis
         setupConstraints()
         
-        // Register Cell
-        
+        // Updated Data Collection
+        listCharacter()
+    }
+    
+    func registerViewCell() {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(CellView.self, forCellWithReuseIdentifier: cellIdentifier)
-        
+         collectionView.register(CellView.self, forCellWithReuseIdentifier: cellIdentifier)
+    }
+    
+    func getTextViewData() {
+        descriptionTextView.text = "Name: \(name)\nNickname: \(nickname)\nOcupación:"
     }
     
     func setupConstraints() {
@@ -119,9 +138,9 @@ extension DescriptionViewController {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CellView
         cell.backgroundColor = .white
         
-        let arr = viewModel.characterModel[indexPath.row].occupation
+        let arrOcupation = viewModel.characterModel[indexPath.row].occupation
+        let occupation = arrOcupation![0]
         
-        let occupation = arr![0]
         cell.text = occupation
 
         return cell

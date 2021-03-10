@@ -23,14 +23,4 @@ public class RepositoryViewModel {
         return restApi.callResApiCharacter(url: url)
     }
     
-//    func movieDataEpisodes() -> Observable<[EpisodeModel]> {
-//        
-//        let url = URLBuilder()
-//            .urlBase()
-//            .domain(.EPISODES)
-//            .build()
-//        
-//        return restApi.callResApiEpisodes(url: url)
-//    }
-    
 }

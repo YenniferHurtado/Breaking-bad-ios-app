@@ -38,10 +38,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             collectionView.contentInsetAdjustmentBehavior = .never
             
         }
-//
-//        override var preferredStatusBarStyle: UIStatusBarStyle {
-//            return .lightContent
-//        }
     
         func listCharacter() {
             collectionView.reloadData()
@@ -73,8 +69,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             
             if viewModel.characterModel.count > 0 {
                 
-                let DesccriptionviewController = DescriptionViewController()
-
                 cell.text = viewModel.characterModel[indexPath.row].name
                 
                 let urlImage:URL = URL.init(string: viewModel.characterModel[indexPath.row].img!)!
@@ -83,7 +77,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
                     print(response?.suggestedFilename ?? urlImage.lastPathComponent)
                     DispatchQueue.main.async() { [weak self] in
                         cell.image = UIImage(data: data)
-                        DesccriptionviewController.imageCharacter = UIImage(data: data)!
                     }
                 }
             }else{
@@ -140,7 +133,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         }
         
         static let mainGreen = UIColor(red: 0.04, green: 0.19, blue: 0.07, alpha: 1.00)
-
 
     }
 
