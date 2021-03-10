@@ -13,52 +13,70 @@ private let cellIdentifier = "HomeCell"
 class DescriptionViewController: UIViewController, CollectionViewProtocol, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
  
     var viewModel = CharacterViewModel()
-    var textName = UILabel()
+    var name = ""
+    var birthday = ""
+    var nickname = ""
+    var imageCharacter = UIImage()
     
     let container = UIView()
-    //    let contentView: UIImageView = {
-//        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-//        view.layer.borderWidth = 1.0
-//        view.backgroundColor = .red
-//        view.layer.borderColor = UIColor.lightGray.cgColor
-//        return view
-//    }()
     
-    let labelTxt: UILabel = {
-        let label = UILabel()
-        label.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 20.0, height: 50)
-        label.backgroundColor = .blue
-        label.textAlignment = .center
-        label.font = UIFont(name: "verdana", size: 20)
-        label.text = "prueba"
-
-        return label
+    var imageCont: UIImage? {
+        didSet {
+            guard let image = imageCont else { return }
+            contentView.image = image
+        }
+    }
+    
+    let contentView: UIImageView = {
+        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        return view
+    }()
+    
+    let descriptionTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Ahora puedes pagar \na otros bancos desde\n Tunki con Plin"
+        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        textView.textAlignment = .center
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        return textView
+    }()
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionview.backgroundColor = .lightGray
+        return collectionview
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let imageView = UIImageView(image: <#T##UIImage?#>)
-        
-        
+                
+        descriptionTextView.text = "Name: \(name)\nNickname: \(nickname)\nBirthday:\(birthday)"
+                
         collectionView.delegate = self
         collectionView.dataSource = self
         
         viewModel.view = self
         viewModel.getDataCharacter()
         
-        view.backgroundColor = .white
         view.addSubview(container)
+        view.addSubview(collectionView)
 
-
-
-        container.insertSubview(imageView, at: 0)
+        container.insertSubview(contentView, at: 0)
+        container.insertSubview(descriptionTextView, at: 1)
 
         container.anchorViewDescription(centerX: view.centerXAnchor, centerY: view.centerYAnchor)
 
         
         setupConstraints()
+        
+        // Register Cell
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.register(CellView.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -77,16 +95,9 @@ class DescriptionViewController: UIViewController, CollectionViewProtocol, UICol
         
         contentView.widthAnchor.constraint(equalToConstant: 500).isActive = true
         contentView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+
         
     }
-    
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionview.backgroundColor = .lightGray
-        return collectionview
-    }()
     
     func listCharacter() {
         collectionView.reloadData()
@@ -125,8 +136,8 @@ extension UIView {
     
         centerXAnchor.constraint(equalTo: centerX).isActive = true
         centerYAnchor.constraint(equalTo: centerY).isActive = true
-        widthAnchor.constraint(equalToConstant: 500).isActive = true
-        heightAnchor.constraint(equalToConstant: 500).isActive = true
+        widthAnchor.constraint(equalToConstant: 800).isActive = true
+        heightAnchor.constraint(equalToConstant: 800).isActive = true
         
     }
 }

@@ -21,7 +21,7 @@ public class CharacterViewModel {
 // MARK: - RESULT OBSERVABLE EPISODE DATA
 
 extension CharacterViewModel {
-    
+
     func getDataCharacter() {
         let observable = repository.movieDataCharacteres()
             observable

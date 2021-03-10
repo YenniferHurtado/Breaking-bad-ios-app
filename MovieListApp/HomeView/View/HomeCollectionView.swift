@@ -74,6 +74,8 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             
             if viewModel.characterModel.count > 0 {
                 
+                let DesccriptionviewController = DescriptionViewController()
+
                 cell.text = viewModel.characterModel[indexPath.row].name
                 
                 let urlImage:URL = URL.init(string: viewModel.characterModel[indexPath.row].img!)!
@@ -82,6 +84,7 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
                     print(response?.suggestedFilename ?? urlImage.lastPathComponent)
                     DispatchQueue.main.async() { [weak self] in
                         cell.image = UIImage(data: data)
+                        DesccriptionviewController.imageCharacter = UIImage(data: data)!
                     }
                 }
             }else{
@@ -94,15 +97,19 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
 
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
-            routeToDescriptionViewController()
-        }
-        
-        func routeToDescriptionViewController() {
             let viewController = DescriptionViewController()
             let navViewController =
                 UINavigationController(rootViewController: viewController)
+            
+            viewController.name = viewModel.characterModel[indexPath.row].name!
+            viewController.birthday = viewModel.characterModel[indexPath.row].birthday!
+            viewController.nickname = viewModel.characterModel[indexPath.row].nickname!
+
             navViewController.modalPresentationStyle = .fullScreen
+            navViewController.navigationBar.tintColor = UIColor.mainGreen
             present(navViewController, animated: true)
+            
+
         }
         
     }
