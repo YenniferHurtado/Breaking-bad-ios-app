@@ -1,8 +1,8 @@
 //
-//  ViewModelCollectioView.swift
+//  DescriptionViewModel.swift
 //  MovieListApp
 //
-//  Created by Yennifer Jhoselin Hurtado Arce on 3/6/21.
+//  Created by Yennifer Jhoselin Hurtado Arce on 3/9/21.
 //  Copyright © 2021 Yennifer Jhoselin Hurtado Arce. All rights reserved.
 //
 
@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 import RxSwift
 
-public class EpisodeViewModel {
+public class DescriptionViewModel {
     
-    var view: CollectionViewProtocol?
-    var episodeModel = [EpisodeModel]()
+    var view: DescriptionViewController?
+    var characterModel = [CharacterModel]()
     var repository = RepositoryViewModel()
     
 }
 
 // MARK: - RESULT OBSERVABLE EPISODE DATA
 
-extension EpisodeViewModel {
+extension DescriptionViewModel {
     
-    func getDataEpisodes() {
-        let observable = repository.movieDataEpisodes()
+    func getDataCharacter() {
+        let observable = repository.movieDataCharacteres()
             observable
                 .observeOn(MainScheduler.instance)
                 .subscribe(
@@ -34,11 +34,11 @@ extension EpisodeViewModel {
         )
     }
     
-    func onNext()->([EpisodeModel])->Void {
+    func onNext()->([CharacterModel])->Void {
             
-        let onNext: ([EpisodeModel])->Void = { response  in
-            self.episodeModel = response
-            self.view?.listEpisodes()
+        let onNext: ([CharacterModel])->Void = { response  in
+            self.characterModel = response
+            self.view?.listCharacters()
         }
         return onNext
     }
@@ -65,3 +65,4 @@ extension EpisodeViewModel {
         return onDisposed
     }
 }
+

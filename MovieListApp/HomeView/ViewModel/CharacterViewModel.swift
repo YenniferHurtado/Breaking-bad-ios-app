@@ -1,8 +1,8 @@
 //
-//  DescriptionViewModel.swift
+//  ViewModelCollectioView.swift
 //  MovieListApp
 //
-//  Created by Yennifer Jhoselin Hurtado Arce on 3/9/21.
+//  Created by Yennifer Jhoselin Hurtado Arce on 3/6/21.
 //  Copyright © 2021 Yennifer Jhoselin Hurtado Arce. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 import RxSwift
 
-public class DescriptionViewModel {
+public class CharacterViewModel {
     
-    var view: DescriptionViewController?
+    var view: CollectionViewProtocol?
     var characterModel = [CharacterModel]()
     var repository = RepositoryViewModel()
     
@@ -20,7 +20,7 @@ public class DescriptionViewModel {
 
 // MARK: - RESULT OBSERVABLE EPISODE DATA
 
-extension DescriptionViewModel {
+extension CharacterViewModel {
     
     func getDataCharacter() {
         let observable = repository.movieDataCharacteres()
@@ -38,7 +38,7 @@ extension DescriptionViewModel {
             
         let onNext: ([CharacterModel])->Void = { response  in
             self.characterModel = response
-            self.view?.listCharacters()
+            self.view?.listCharacter()
         }
         return onNext
     }
@@ -65,20 +65,3 @@ extension DescriptionViewModel {
         return onDisposed
     }
 }
-
-
-//func getDataCharacter() {
-//
-//    let observable = repository.movieDataCharacteres()
-//    observable
-//        .observeOn(MainScheduler.instance)
-//        .subscribe(onNext: { ( char ) in
-//            self.characterModel = char
-//        }, onError: { ( error ) in
-//
-//        }, onCompleted: {
-//
-//        }) {
-//
-//    }
-//}

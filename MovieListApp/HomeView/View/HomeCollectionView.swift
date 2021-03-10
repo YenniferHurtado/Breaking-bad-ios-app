@@ -13,7 +13,7 @@ private let headerIdentifier = "HomeHeader"
 
 protocol CollectionViewProtocol {
     
-    func listEpisodes()
+    func listCharacter()
 }
 
 
@@ -22,7 +22,7 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
     
     // MARK: - Properties
     
-    var viewModel = EpisodeViewModel()
+    var viewModel = CharacterViewModel()
 
     // MARK: - Lifecycle
         
@@ -31,7 +31,7 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
 
             collectionView.backgroundColor = .black
             viewModel.view = self
-            viewModel.getDataEpisodes()
+            viewModel.getDataCharacter()
 
             
             // register header
@@ -48,10 +48,14 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             return .lightContent
         }
     
-        func listEpisodes() {
+        func listCharacter() {
             collectionView.reloadData()
         }
 
+        func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+            URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+        }
+    
     }
 
 
@@ -66,26 +70,32 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         }
         
         override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return viewModel.episodeModel.count
+            return viewModel.characterModel.count
         }
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CellView
-            let tittle = viewModel.episodeModel[indexPath.row].title
-            let id = viewModel.episodeModel[indexPath.row].episode_id
             
-            let tiit = tittle?.replacingOccurrences(of: " ", with: "\n")
-            
-            if tittle!.count > 10 {
-                cell.text = "Episodio: \(id ?? 0)\n \(tiit ?? "")"
-
-            } else {
-                cell.text = "Episodio: \(id ?? 0)\n \(tittle ?? "")"
+            if viewModel.characterModel.count > 0 {
+                
+                cell.text = viewModel.characterModel[indexPath.row].name
+                
+                let urlImage:URL = URL.init(string: viewModel.characterModel[indexPath.row].img!)!
+                getData(from: urlImage) { data, response, error in
+                    guard let data = data, error == nil else { return }
+                    print(response?.suggestedFilename ?? urlImage.lastPathComponent)
+                    DispatchQueue.main.async() { [weak self] in
+                        cell.image = UIImage(data: data)
+                    }
+                }
+            }else{
+                cell.text = viewModel.characterModel[indexPath.row].name
             }
             
             return cell
         }
         
+
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
             routeToDescriptionViewController()

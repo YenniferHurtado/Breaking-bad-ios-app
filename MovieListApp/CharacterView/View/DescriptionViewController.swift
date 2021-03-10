@@ -8,6 +8,9 @@
 
 import UIKit
 
+private let cellIdentifier = "HomeCell"
+private let headerIdentifier = "HomeHeader"
+
 protocol DescriptionViewControllerProtocol {
     
     func listCharacters()

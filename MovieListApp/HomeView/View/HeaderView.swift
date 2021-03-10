@@ -56,7 +56,6 @@ class HeaderView: UICollectionReusableView {
         profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         profileImageView.anchor(top: topAnchor, paddingTop: 88, width: 120, height: 120)
         profileImageView.layer.cornerRadius = 120 / 2
-        
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         nameLabel.anchor(top: profileImageView.bottomAnchor, paddingTop: 12)
 
