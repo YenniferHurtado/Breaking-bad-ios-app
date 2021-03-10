@@ -87,7 +87,15 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         }
         
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            print("hola")
+            
+            routeToDescriptionViewController()
+        }
+        
+        func routeToDescriptionViewController() {
+            let viewController = DescriptionViewController()
+            let navViewController = UINavigationController(rootViewController: viewController)
+            navViewController.modalPresentationStyle = .fullScreen
+            present(navViewController, animated: true)
         }
         
     }

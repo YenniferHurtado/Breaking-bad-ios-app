@@ -15,12 +15,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+
         window = UIWindow(windowScene: scene as! UIWindowScene)
         window?.makeKeyAndVisible()
 
         let layaout = UICollectionViewFlowLayout()
         window?.rootViewController = CollectionViewController(collectionViewLayout: layaout)
+     
         
+        let collectionView = CollectionViewController(collectionViewLayout: layaout)
+        let navigation = UINavigationController(rootViewController: collectionView)
+        window?.rootViewController = navigation
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

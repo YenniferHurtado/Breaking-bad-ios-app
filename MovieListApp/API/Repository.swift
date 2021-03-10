@@ -33,24 +33,4 @@ public class RepositoryViewModel {
         return restApi.callResApiEpisodes(url: url)
     }
     
-//    public func movieDataQuotes() -> Void {
-//
-//        let url = URLBuilder()
-//            .urlBase()
-//            .domain(.QUOTES)
-//            .build()
-//
-//        return restApi.callRestApi(url: url)
-//    }
-//
-//    public func movieDataDeaths() -> Void {
-//
-//        let url = URLBuilder()
-//            .urlBase()
-//            .domain(.DEATHS)
-//            .build()
-//
-//        return restApi.callRestApi(url: url)
-//    }
-    
 }

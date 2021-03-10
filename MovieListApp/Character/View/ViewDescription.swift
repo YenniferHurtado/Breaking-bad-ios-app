@@ -6,4 +6,14 @@
 //  Copyright © 2021 Yennifer Jhoselin Hurtado Arce. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class DescriptionViewController: UIViewController {
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("hoy description")
+    }
+    
+}
