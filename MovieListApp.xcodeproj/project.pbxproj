@@ -21,7 +21,6 @@
 		A13B880E25F3F030005DE6BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A13B880D25F3F030005DE6BC /* Assets.xcassets */; };
 		A13B881125F3F030005DE6BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13B880F25F3F030005DE6BC /* LaunchScreen.storyboard */; };
 		A154E59225F4190A00868A87 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154E59125F4190A00868A87 /* CellView.swift */; };
-		A171470C25F8E6EC002728A7 /* CellDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171470B25F8E6EC002728A7 /* CellDescription.swift */; };
 		E720CBBA98FE56AD883A0131 /* Pods_MovieListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF0A146FB99376E69240A78 /* Pods_MovieListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 		A13B881025F3F030005DE6BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A13B881225F3F030005DE6BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A154E59125F4190A00868A87 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
-		A171470B25F8E6EC002728A7 /* CellDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				A114272025F830AD00DFBB46 /* DescriptionViewController.swift */,
-				A171470B25F8E6EC002728A7 /* CellDescription.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,7 +293,6 @@
 				A13B880525F3F02C005DE6BC /* AppDelegate.swift in Sources */,
 				A13B880725F3F02C005DE6BC /* SceneDelegate.swift in Sources */,
 				A12C94FC25F46FD90004B762 /* URLBuilder.swift in Sources */,
-				A171470C25F8E6EC002728A7 /* CellDescription.swift in Sources */,
 				A12AAD4425F6A74500D27FBA /* HeaderView.swift in Sources */,
 				A154E59225F4190A00868A87 /* CellView.swift in Sources */,
 				A12C94F625F462BB0004B762 /* CharacterModel.swift in Sources */,

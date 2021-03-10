@@ -26,7 +26,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
         override func viewDidLoad() {
             super.viewDidLoad()
 
-            collectionView.backgroundColor = .black
             viewModel.view = self
             viewModel.getDataCharacter()
 
@@ -106,10 +105,8 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             viewController.nickname = viewModel.characterModel[indexPath.row].nickname!
 
             navViewController.modalPresentationStyle = .fullScreen
-            navViewController.navigationBar.tintColor = UIColor.mainGreen
             present(navViewController, animated: true)
             
-
         }
         
     }

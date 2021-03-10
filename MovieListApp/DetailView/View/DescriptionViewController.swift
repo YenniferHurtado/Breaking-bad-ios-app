@@ -18,25 +18,14 @@ class DescriptionViewController: UIViewController, CollectionViewProtocol, UICol
     var nickname = ""
     var imageCharacter = UIImage()
     
-    let container = UIView()
-    
-    var imageCont: UIImage? {
-        didSet {
-            guard let image = imageCont else { return }
-            contentView.image = image
-        }
-    }
-    
-    let contentView: UIImageView = {
-        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        view.layer.borderWidth = 1.0
-        view.layer.borderColor = UIColor.lightGray.cgColor
+    let imageView: UIImageView = {
+        let view = UIImageView(image: #imageLiteral(resourceName: "character"))
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Ahora puedes pagar \na otros bancos desde\n Tunki con Plin"
         textView.font = UIFont.boldSystemFont(ofSize: 18)
         textView.textAlignment = .center
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,30 +38,29 @@ class DescriptionViewController: UIViewController, CollectionViewProtocol, UICol
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionview = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionview.backgroundColor = .lightGray
+        collectionview.backgroundColor = .systemPink
         return collectionview
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("hhhhhh\(imageCharacter)")
                 
-        descriptionTextView.text = "Name: \(name)\nNickname: \(nickname)\nBirthday:\(birthday)"
+        view.backgroundColor = .white
+        descriptionTextView.text = "Name: \(name)\nNickname: \(nickname)\nBirthday:\(birthday)\n\n\n\nOcupación:"
                 
         collectionView.delegate = self
         collectionView.dataSource = self
         
         viewModel.view = self
         viewModel.getDataCharacter()
+        routeToHome()
         
-        view.addSubview(container)
         view.addSubview(collectionView)
-
-        container.insertSubview(contentView, at: 0)
-        container.insertSubview(descriptionTextView, at: 1)
-
-        container.anchorViewDescription(centerX: view.centerXAnchor, centerY: view.centerYAnchor)
-
+        view.addSubview(imageView)
+        view.addSubview(descriptionTextView)
         
         setupConstraints()
         
@@ -86,21 +74,36 @@ class DescriptionViewController: UIViewController, CollectionViewProtocol, UICol
     func setupConstraints() {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         
-        contentView.widthAnchor.constraint(equalToConstant: 500).isActive = true
-        contentView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
+        descriptionTextView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 120).isActive = true
+        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
+
+
     }
     
     func listCharacter() {
         collectionView.reloadData()
+    }
+    
+    func routeToHome() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissView))
+    }
+    
+    @objc private func dismissView() {
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -117,7 +120,9 @@ extension DescriptionViewController {
         cell.backgroundColor = .white
         
         let arr = viewModel.characterModel[indexPath.row].occupation
-        cell.text = "\(arr![0])"
+        
+        let occupation = arr![0]
+        cell.text = occupation
 
         return cell
     }
@@ -128,16 +133,3 @@ extension DescriptionViewController {
     
 }
 
-
-extension UIView {
-    func anchorViewDescription(centerX: NSLayoutXAxisAnchor, centerY: NSLayoutYAxisAnchor) {
-        
-        translatesAutoresizingMaskIntoConstraints = false
-    
-        centerXAnchor.constraint(equalTo: centerX).isActive = true
-        centerYAnchor.constraint(equalTo: centerY).isActive = true
-        widthAnchor.constraint(equalToConstant: 800).isActive = true
-        heightAnchor.constraint(equalToConstant: 800).isActive = true
-        
-    }
-}

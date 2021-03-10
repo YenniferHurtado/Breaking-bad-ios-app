@@ -43,6 +43,7 @@ class CellView: UICollectionViewCell {
         let textView = UITextView()
         textView.font = UIFont.boldSystemFont(ofSize: 20)
         textView.textAlignment = .center
+        textView.textContainer.maximumNumberOfLines = 2
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
         textView.isScrollEnabled = false
@@ -70,7 +71,7 @@ class CellView: UICollectionViewCell {
         
         nameTitleText.anchor()
         cellImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
-
+        nameTitleText.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
