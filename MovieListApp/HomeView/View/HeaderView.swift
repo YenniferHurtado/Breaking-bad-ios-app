@@ -25,7 +25,7 @@ class HeaderView: UICollectionReusableView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Breaking Bad \n "
+        label.text = "Breaking Bad"
         label.font = UIFont.boldSystemFont(ofSize: 40)
         label.textColor = .white
         return label

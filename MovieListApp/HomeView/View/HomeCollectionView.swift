@@ -33,7 +33,6 @@ class CollectionViewController: UICollectionViewController, CollectionViewProtoc
             viewModel.view = self
             viewModel.getDataCharacter()
 
-            
             // register header
             collectionView!.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
             
