@@ -11,7 +11,7 @@ https://breakingbadapi.com/api/characters
 - Alamofire
 - Decodable
 - URLSession
-- Patrón Creacional Builder
+- Creational Pattern Builder
 - Protocols
 - Views Programmatically
 - UIKit 
