@@ -1,4 +1,4 @@
-# MovieListApp
+# Breaking Bad App
 iOS application that shows list of episodies of breaking bad.
 
 ## API that I was using:
